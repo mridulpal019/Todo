@@ -1,0 +1,15 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "It is a Todo application, you can use it to keep track your priority jobs here.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mridul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
