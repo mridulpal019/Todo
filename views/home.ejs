@@ -1,5 +1,6 @@
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/607b6d4251.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/css/style.css">
         <title>
             <%= title %>
@@ -7,7 +8,45 @@
 
     </head>
     <body>
-        <h1> Todo App</h1>
+        <h1><i class="fas fa-tasks"></i> Todo App</h1>
+        <hr>
+        <div class="desc">
+        <label for="">Description</label><br>
+        <input type="text" class="add-task" id="add" name="task" placeholder="What do you need to do !!!?" >
+    </div>
+    <hr>
+    <div class="other-desc">
+        <div class="category">
+            <label for="Category">Category</label>
+            <br>
+           <input type="text" name="" id="">
+        </div>
+        <div class="deadline">
+            <label for="Deadline"> Deadline</label>
+            <br>
+            <input type="date" name=deadline" id="deadline">
+        </div>
+    </div>
+    <hr>
+    <div class="buttons">
+        <div class="add-task-button">
+            <button id="add-button"> <i class="fas fa-plus"></i>Add task </button>
+
+        </div>
+        <div class="delete-task-button">
+            <button id="delete-button" ><i class="fas fa-trash"></i> Delete Task</button>
+
+        </div>
+    </div>
+  
+    <!---->
+    <div class="task-list">
+    <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' :''}  class="custom-checkbox">
+        <label for="${task.id}">"${task.title}"</label>
+        <img src="bin.png" class="delete" data-id="${task.id}" />
+    </div>
+
+
 
      <script src="/js/action.js"></script>   
     </body>

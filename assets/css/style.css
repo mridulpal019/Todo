@@ -1,8 +1,68 @@
 body{
     font-family: sans-serif;
+    padding: 1%;
     
 }
 
 h1{
     text-align: center;
+}
+
+.desc input{
+    border: none;
+    width: 95vw;
+    height: 10vh;
+}
+
+.other-desc{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.category{
+    width: 45%;
+    height: 10vh;
+    margin: 1%;
+}
+
+.deadline{
+    width: 45%;
+    height: 10vh;
+    margin: 1%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.add-task-button,.delete-task-button{
+    margin: 2%;
+}
+
+#add-button{
+    background-color: blue;
+    color: white;
+    width: 15vw;
+    height: 10vh;
+    border: none;
+    
+}
+
+#delete-button{
+    background-color: rgb(136, 16, 16);
+    color: white;
+    width: 15vw;
+    height: 10vh;
+   
+    border: none;
+
+}
+
+.task-list{
+    display: flex;
+    
 }
