@@ -50,12 +50,39 @@
 </form>
 
   
-    <!--
-    <div class="task-list">
-    <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' :''}  class="custom-checkbox">
+    
+    <div class="task-list-container">
+        <ul>
+            <%for (let i of task_list){%>
+                <li class="taask">
+                    <div class="details">
+                    <input type="checkbox" id=`<%= i.id %>` ${task.completed ? 'checked' :''}  class="custom-checkbox">
+                    <p>
+                        <%= i.task_desc%>
+                    </p>
+                    <p>
+                        <i class="fas fa-heart"></i>
+                        <%= i.deadline%>
+    
+                    </p>
+                   
+                </div>
+                <div class="category-outbox">
+                    <p>
+                        <%= i.category %>
+                    </p>
+                </div>
+                </li>
+                <%}%>
+    
+        </ul>
+    <!--</div>
+
         <label for="${task.id}">"${task.title}"</label>
         <img src="bin.png" class="delete" data-id="${task.id}" />
-    </div>-->
+    </div>
+
+    -->
 
 
 

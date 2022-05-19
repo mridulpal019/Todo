@@ -11,13 +11,14 @@ const bodyParser = require('body-parser');//parser used to decode the encrpyted 
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-
+//routes all request to routes/index file
 app.use('/',require("./routes/index"))
 
 
 
+//setting express to lock up assests for static files
+app.use(express.static("assets"));
 
-app.use(express.static("assets"));//setting express to lock up assests for static files
 app.listen(port,function(err){
     if (err){
         console.log(`Error in running the server:${err}`);
