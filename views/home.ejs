@@ -10,21 +10,29 @@
     <body>
         <h1><i class="fas fa-tasks"></i> Todo App</h1>
         <hr>
+        <form id ="new-task-form" action="/create-task" method="POST">
         <div class="desc">
-        <label for="">Description</label><br>
-        <input type="text" class="add-task" id="add" name="task" placeholder="What do you need to do !!!?" >
+        <label for="Description">Description</label><br>
+        <input type="text" class="add-task" id="add" name="task_desc" placeholder="What do you need to do !!!?" required >
     </div>
     <hr>
     <div class="other-desc">
         <div class="category">
             <label for="Category">Category</label>
             <br>
-           <input type="text" name="" id="">
+            <select name="category" id="category" required >
+                <option value="" selected="selected">Select Category</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="College">College</option>
+                <option value="Study">Study</option>
+                <option value="Hobby">Hobby</option>
+            </select>
         </div>
         <div class="deadline">
             <label for="Deadline"> Deadline</label>
             <br>
-            <input type="date" name=deadline" id="deadline">
+            <input type="date" name="deadline" id="deadline" required>
         </div>
     </div>
     <hr>
@@ -35,16 +43,19 @@
         </div>
         <div class="delete-task-button">
             <button id="delete-button" ><i class="fas fa-trash"></i> Delete Task</button>
-
+        
         </div>
-    </div>
+        </div>
+        
+</form>
+
   
-    <!---->
+    <!--
     <div class="task-list">
     <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' :''}  class="custom-checkbox">
         <label for="${task.id}">"${task.title}"</label>
         <img src="bin.png" class="delete" data-id="${task.id}" />
-    </div>
+    </div>-->
 
 
 
