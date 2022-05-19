@@ -48,23 +48,28 @@
         </div>
         
 </form>
-
+<hr>
   
     
     <div class="task-list-container">
         <ul>
             <%for (let i of task_list){%>
                 <li class="taask">
-                    <div class="details">
+                <div class="details">
+                <div class="check-box">
                     <input type="checkbox" id=`<%= i.id %>` ${task.completed ? 'checked' :''}  class="custom-checkbox">
+                </div>
+                    <div class="desc">
                     <p>
                         <%= i.task_desc%>
                     </p>
+                    
                     <p>
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-calendar"></i>
                         <%= i.deadline%>
     
                     </p>
+                </div>
                    
                 </div>
                 <div class="category-outbox">
@@ -73,6 +78,7 @@
                     </p>
                 </div>
                 </li>
+                <hr>
                 <%}%>
     
         </ul>
