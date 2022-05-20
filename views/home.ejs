@@ -41,23 +41,26 @@
             <button id="add-button"> <i class="fas fa-plus"></i>Add task </button>
 
         </div>
-        <div class="delete-task-button">
-            <button id="delete-button" ><i class="fas fa-trash"></i> Delete Task</button>
         
-        </div>
-        </div>
         
 </form>
-<hr>
+
+<div class="delete-task-button">
+    <button id="delete-task" form="delete-form" type="submit" ><i class="fas fa-trash"></i> Delete Task</button>
+
+</div>
+</div>
   
     
     <div class="task-list-container">
+        <form action="/delete-task" id="delete-form" method="get">
         <ul>
             <%for (let i of task_list){%>
                 <li class="taask">
                 <div class="details">
                 <div class="check-box">
-                    <input type="checkbox" id=`<%= i.id %>` ${task.completed ? 'checked' :''}  class="custom-checkbox">
+                    <input type="checkbox" name="<%= i.id %>" class="custom-checkbox">
+                    
                 </div>
                     <div class="desc">
                     <p>
@@ -82,6 +85,7 @@
                 <%}%>
     
         </ul>
+    </form>
     <!--</div>
 
         <label for="${task.id}">"${task.title}"</label>

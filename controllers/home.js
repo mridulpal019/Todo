@@ -32,4 +32,19 @@ module.exports.createTask=function(req,res){
 
 }
 
+module.exports.deleteTask=function(req,res){
+    var id =req.query;
+  
+  //  return res.end("<h1>Delete page</h1>")
+    for(let i in id){
+    Tasks.findByIdAndDelete(i,function(err){
+        if (err){
+            console.log("error in deleting a objext in database");
+            return;
+        }
+        
+    })}
+    return res.redirect('back');
+
+}
 
