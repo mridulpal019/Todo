@@ -14,14 +14,9 @@ module.exports.home=function(req,res){
                 title :"Todo",
                 task_list:tasks,
                 ctasks_list:ctasks
-        })
-        
+        })      
     })
-  
-
 });
-
-  
 }
 
 module.exports.createTask=function(req,res){

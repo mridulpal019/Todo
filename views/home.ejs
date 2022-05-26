@@ -7,14 +7,15 @@
         </title>
 
     </head>
-    <body>
-        <h1><i class="fas fa-tasks"></i> Todo App</h1>
+<body>
+<div id="input-box">
+        <h1><i class="fas fa-tasks"></i> ToDo App</h1>
         <hr>
         <form id ="new-task-form" action="/create-task" method="POST">
         <div class="desc">
         <label for="Description">Description</label><br>
         <input type="text" class="add-task" id="add" name="task_desc" placeholder="What do you need to do !!!?" >
-    </div>
+        </div>
     <hr>
     <div class="other-desc">
         <div class="category">
@@ -29,6 +30,7 @@
                 <option value="Hobby">Hobby</option>
             </select>
         </div>
+        <hr>
         <div class="deadline">
             <label for="Deadline"> Deadline</label>
             <br>
@@ -40,18 +42,21 @@
         <div class="add-task-button">
             <button id="add-button"> <i class="fas fa-plus"></i>Add task </button>
 
-        </div>     
+        </div>  
+        <div class="delete-task-button">
+            <button id="delete-task" form="delete-form" type="submit" ><i class="fas fa-trash"></i> Delete Task</button>
+        
+        </div>
+     </div>   
 </form>
 
-<div class="delete-task-button">
-    <button id="delete-task" form="delete-form" type="submit" ><i class="fas fa-trash"></i> Delete Task</button>
 
 </div>
-</div>
   
+<div class="lists-container">
     <div class="task-list-container">
-        <h2>Works To be Completed</h2>
-        <hr>
+        <h3>Tasks to complete !</h3>
+       
         <form action="/delete-task" id="delete-form" method="get">
         <ul>
             <%for (let i of task_list){%>
@@ -80,28 +85,28 @@
                     </p>
                 </div>
                 </li>
-                <hr>
+               <br>
                 <%}%>
     
         </ul>
     </form>
     </div>
     <div class="completed-task-list">
-    <h2>Recently Completed Tasks</h2>
-    <hr>
+    <h3>Recently Completed Tasks</h3>
+   
    
    
     <ul>
         <% for(let c of ctasks_list){ %>
-        <li>
+        <li class="taask">
             <%= c.name %>
         </li>
          <% }%>   
     </ul>
-    <a href="/delete-completed-tasks"><button> Delete all Completed task</button></a>
+    <a href="/delete-completed-tasks">Delete all Completed task</a>
 
 </div>
-
+</div>
      <script src="/js/action.js"></script>   
     </body>
 </html>
