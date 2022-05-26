@@ -13,7 +13,7 @@
         <form id ="new-task-form" action="/create-task" method="POST">
         <div class="desc">
         <label for="Description">Description</label><br>
-        <input type="text" class="add-task" id="add" name="task_desc" placeholder="What do you need to do !!!?" required >
+        <input type="text" class="add-task" id="add" name="task_desc" placeholder="What do you need to do !!!?" >
     </div>
     <hr>
     <div class="other-desc">
@@ -40,9 +40,7 @@
         <div class="add-task-button">
             <button id="add-button"> <i class="fas fa-plus"></i>Add task </button>
 
-        </div>
-        
-        
+        </div>     
 </form>
 
 <div class="delete-task-button">
@@ -51,8 +49,9 @@
 </div>
 </div>
   
-    
     <div class="task-list-container">
+        <h2>Works To be Completed</h2>
+        <hr>
         <form action="/delete-task" id="delete-form" method="get">
         <ul>
             <%for (let i of task_list){%>
@@ -86,15 +85,22 @@
     
         </ul>
     </form>
-    <!--</div>
-
-        <label for="${task.id}">"${task.title}"</label>
-        <img src="bin.png" class="delete" data-id="${task.id}" />
     </div>
+    <div class="completed-task-list">
+    <h2>Recently Completed Tasks</h2>
+    <hr>
+   
+   
+    <ul>
+        <% for(let c of ctasks_list){ %>
+        <li>
+            <%= c.name %>
+        </li>
+         <% }%>   
+    </ul>
+    <a href="/delete-completed-tasks"><button> Delete all Completed task</button></a>
 
-    -->
-
-
+</div>
 
      <script src="/js/action.js"></script>   
     </body>

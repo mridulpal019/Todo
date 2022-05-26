@@ -1,4 +1,5 @@
 const Tasks = require("../models/task");
+const Completed=require('../models/completed');
 
 module.exports.home=function(req,res){
     Tasks.find({},function(err,tasks){
@@ -6,9 +7,15 @@ module.exports.home=function(req,res){
             console.log("error in fetching contact from db");
             return;
         }
-        return res.render('home',{
-            title :"Todo",
-            task_list:tasks,
+        Completed.find({},function(err,ctasks){
+            if (err){ console.log('error')};
+            console.log(ctasks);
+            return res.render('home',{
+                title :"Todo",
+                task_list:tasks,
+                ctasks_list:ctasks
+        })
+        
     })
   
 
@@ -34,17 +41,39 @@ module.exports.createTask=function(req,res){
 
 module.exports.deleteTask=function(req,res){
     var id =req.query;
-  
-  //  return res.end("<h1>Delete page</h1>")
+    if (id){
+    //it will clear the recently_completed db before adding new items to it. 
+    Completed.deleteMany({},function(err){
+        if(err){console.log("cannot delete the items of recent completed");}
+    });
+ 
     for(let i in id){
+    Tasks.findById(i,function(err,ctask){
+        if (err){
+            console.log('error in finding task for adding in recentlu completed')
+        }
+        //it will add every recent completed item to the list
+        Completed.create({
+            name:ctask.task_desc
+        })
+
+    })    
+   
     Tasks.findByIdAndDelete(i,function(err){
         if (err){
             console.log("error in deleting a objext in database");
             return;
         }
         
-    })}
-    return res.redirect('back');
-
+    })} return res.redirect('back');
+}  
 }
 
+
+module.exports.deleteCompletedTask =function(req,res){
+    Completed.deleteMany({},function(err){
+        if(err){console.log("cannot delete the items of recent completed");}
+        return res.redirect('back');
+    });
+    
+}

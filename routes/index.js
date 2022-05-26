@@ -16,5 +16,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 router.get('/',todoController.home); 
 router.post('/create-task',todoController.createTask);
 router.get('/delete-task',todoController.deleteTask);
+router.get('/delete-completed-tasks',todoController.deleteCompletedTask)
 
 module.exports =router;

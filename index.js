@@ -5,10 +5,9 @@ const port = 8000;
 //setting up the ejs view engine
 
 app.set("view engine","ejs");
-
 app.set("views" ,"./views")
-
-const bodyParser = require('body-parser');//parser used to decode the encrpyted form data send by browser to server
+//parser used to decode the encrpyted form data send by browser to server
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
 
