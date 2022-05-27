@@ -11,7 +11,7 @@ const db = require('../config/mongoose');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
-
+//handling routes request and allocating controller function to them
 
 router.get('/',todoController.home); 
 router.post('/create-task',todoController.createTask);

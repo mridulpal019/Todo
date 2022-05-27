@@ -8,17 +8,20 @@
 
     </head>
 <body>
+<!-- input Section here data is send to Database to get stored -->
 <div id="input-box">
         <h1><i class="fas fa-tasks"></i> ToDo App</h1>
         <hr>
         <form id ="new-task-form" action="/create-task" method="POST">
-        <div class="desc">
+       <!-- Task Description Input  -->
+    <div class="desc focus">
         <label for="Description">Description</label><br>
         <input type="text" class="add-task" id="add" name="task_desc" placeholder="What do you need to do !!!?" >
-        </div>
+    </div>
     <hr>
-    <div class="other-desc">
-        <div class="category">
+    <div class="other-desc ">
+        <!-- Category input -->
+        <div class="category focus">
             <label for="Category">Category</label>
             <br>
             <select name="category" id="category" required >
@@ -31,16 +34,19 @@
             </select>
         </div>
         <hr>
-        <div class="deadline">
+        <!-- Deadline Input -->
+        <div class="deadline focus">
             <label for="Deadline"> Deadline</label>
             <br>
             <input type="date" name="deadline" id="deadline" required>
         </div>
     </div>
+    <br>
     <hr>
+<!-- Delete Buttons -->
     <div class="buttons">
         <div class="add-task-button">
-            <button id="add-button"> <i class="fas fa-plus"></i>Add task </button>
+            <button id="add-button"> <i class="fas fa-plus"></i>Add Task </button>
 
         </div>  
         <div class="delete-task-button">
@@ -52,7 +58,7 @@
 
 
 </div>
-  
+<!-- Rendering the Tasks stroed in the Database -->
 <div class="lists-container">
     <div class="task-list-container">
         <h3>Tasks to complete !</h3>
@@ -73,13 +79,13 @@
                     
                     <p>
                         <i class="fas fa-calendar"></i>
-                        <%= i.deadline%>
+                        <%= i.deadline.toDateString() %>
     
                     </p>
                 </div>
                    
                 </div>
-                <div class="category-outbox">
+                <div class="category-outbox" id="<%= i.category %>">
                     <p>
                         <%= i.category %>
                     </p>
@@ -91,6 +97,8 @@
         </ul>
     </form>
     </div>
+
+    <!-- Recently Completed tasks list  -->
     <div class="completed-task-list">
     <h3>Recently Completed Tasks</h3>
    
@@ -98,11 +106,15 @@
    
     <ul>
         <% for(let c of ctasks_list){ %>
+        
         <li class="taask">
             <%= c.name %>
         </li>
-         <% }%>   
+        <br>
+         <% }%> 
+         
     </ul>
+    <!-- Deleting all Items from Recently Completed list  -->
     <a href="/delete-completed-tasks">Delete all Completed task</a>
 
 </div>

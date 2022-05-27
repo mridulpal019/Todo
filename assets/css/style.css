@@ -1,3 +1,4 @@
+/* ---------------------------Input Data section style----------------------------------- */
 body{
     font-family: sans-serif;
     padding: 1%;
@@ -29,6 +30,11 @@ h1{
 
 }
 
+#input-box input:focus ,select:focus {
+    background-color: rgb(214, 221, 218)
+
+}
+
 .other-desc{
     display: flex;
     flex-direction: row;
@@ -46,7 +52,7 @@ h1{
     height: 10vh;
     margin: 1%;
 }
-
+/*---------------------------------- Buttons section style------------------------------------ */
 .buttons{
     display: flex;
     justify-content: center;
@@ -64,7 +70,12 @@ h1{
     width: 15vw;
     height: 10vh;
     border: none;
+    border-radius: 5px;
     
+}
+
+#add-button:hover{
+    background-color: rgb(21, 21, 161);
 }
 
 #delete-task{
@@ -72,11 +83,14 @@ h1{
     color: white;
     width: 15vw;
     height: 10vh;
-   
+    border-radius: 5px;
     border: none;
 
 }
-
+#delete-task:hover{
+    background-color: rgb(109, 15, 15);
+}
+/* ---------------------------------Rendering Task section styling ----------------------*/
 .taask{
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     color:rgb(97, 95, 95);
@@ -106,11 +120,32 @@ ul li{
 .category-outbox{
     height: 8%;
     width:15%;
-    background-color: rgb(21, 95, 70);
     text-align: center;
     color: white;
     margin-right: 2%;
     border-radius: 5px;
+}
+
+/*----------------------------------- differnd Colors for Diffrent Categorys Card------------------ */
+
+#College{
+    background-color: #71BC78;
+}
+
+#Work{
+    background-color: #9071bc;
+}
+
+#Personal{
+    background-color: rgb(255, 89, 0);
+}
+
+#Hobby{
+    background-color: cornflowerblue;
+}
+
+#study{
+    background-color: goldenrod;
 }
 
 .lists-container{
@@ -133,19 +168,24 @@ ul li{
     border-radius: 5px;
 }
 
-
+/* --------------------------------Completed Task Style------------------------------ */
 
 .completed-task-list{
+    position: relative;
     width: 27%;
-    /* border-left: 1px solid gray; */
     margin: 1%;
     padding: 1%;
-    background-color: #29AB87;
+    background-color:#60a566ed;
     border-radius: 5px;
 }
 
 .completed-task-list a{
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    color: black;
     display: inline-block;
     text-decoration: none;
+
     text-align: center;
 }

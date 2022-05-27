@@ -1,6 +1,8 @@
 const Tasks = require("../models/task");
 const Completed=require('../models/completed');
 
+
+//used for rendering the home page
 module.exports.home=function(req,res){
     Tasks.find({},function(err,tasks){
         if (err){
@@ -18,7 +20,7 @@ module.exports.home=function(req,res){
     })
 });
 }
-
+//the inputed task will be stored in the database 
 module.exports.createTask=function(req,res){
     Tasks.create({
         task_desc:req.body.task_desc,
@@ -33,7 +35,7 @@ module.exports.createTask=function(req,res){
     })
 
 }
-
+//Delete task 
 module.exports.deleteTask=function(req,res){
     var id =req.query;
     if (id){
@@ -64,7 +66,7 @@ module.exports.deleteTask=function(req,res){
 }  
 }
 
-
+//delelte Completed Task
 module.exports.deleteCompletedTask =function(req,res){
     Completed.deleteMany({},function(err){
         if(err){console.log("cannot delete the items of recent completed");}
