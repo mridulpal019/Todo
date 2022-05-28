@@ -66,7 +66,7 @@
        
         <form action="/delete-task" id="delete-form" method="get">
         <ul>
-            <%for (let i of task_list){%>
+            <%if (task_list && task_list.length >0){for (let i of task_list){%>
                 <li class="taask">
                 <div class="details">
                 <div class="check-box">
@@ -93,7 +93,9 @@
                 </div>
                 </li>
                <br>
-                <%}%>
+                <%}}else{%>
+                    <h4 style="font-family:'Kalam' ; color:blueviolet">No Pending Tasks!!! YEAHHH...</h4>
+                 <% }%>   
     
         </ul>
     </form>
@@ -106,17 +108,23 @@
    
    
     <ul>
-        <% for(let c of ctasks_list){ %>
+        <% if(ctasks_list && ctasks_list.length > 0){ for(let c of ctasks_list){ %>
         
         <li class="taask">
             <%= c.name %>
         </li>
         <br>
          <% }%> 
+        
          
     </ul>
     <!-- Deleting all Items from Recently Completed list  -->
     <a href="/delete-completed-tasks">Delete all Completed task</a>
+    <br>
+    <br>
+    <%}else{%>
+        <h5>No Task completed Recently!!</h5>
+        <%}%>
 
 </div>
 </div>
