@@ -25,3 +25,10 @@ Environment:-
 system should have a MongoDb database
 system should have a Web browser
 system should have latest node.js 
+
+
+Screenshots:-
+
+![img](/img/1.png)
+![img](/img/2.png)
+![img](/img/3.png)
